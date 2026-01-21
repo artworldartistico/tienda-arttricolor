@@ -306,7 +306,7 @@ function comprarCarrito() {
 
                 <!-- Upload de Comprobante -->
                 <div class="upload-section">
-                    <h3>Favor enviar comprobante de pago a este whatsApp <a target="_blank" href="https://api.whatsapp.com/send?phone=573213900071&amp;text=Buen%20d%C3%ADa%20Andrés,%20senvío%20mi%20comprobante%20de%20pago%20de...">321 390 0071</a></h3>
+                    <h3>Favor enviar comprobante de pago a este whatsApp <a target="_blank" href="https://api.whatsapp.com/send?phone=573213900071&amp;text=Buen%20d%C3%ADa%20Andrés,%20envío%20mi%20comprobante%20de%20pago%20de...">321 390 0071</a></h3>
                 </div>
             </div>
         `,
