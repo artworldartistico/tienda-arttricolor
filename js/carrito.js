@@ -306,20 +306,7 @@ function comprarCarrito() {
 
                 <!-- Upload de Comprobante -->
                 <div class="upload-section">
-                    <h3><i class="bi bi-file-earmark-arrow-up-fill"></i> Comprobante de Pago</h3>
-                    <div class="upload-area" id="upload-area">
-                        <i class="bi bi-cloud-upload"></i>
-                        <p>Arrastra tu comprobante aquí o haz clic para seleccionar</p>
-                        <input type="file" id="comprobante-input" accept="image/*,.pdf" style="display: none;">
-                        <div id="file-preview" style="display: none;">
-                            <i class="bi bi-file-check"></i>
-                            <span id="file-name"></span>
-                            <button class="remove-file" onclick="removerArchivo()">
-                                <i class="bi bi-x-circle"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <small style="color: #666;">Formatos aceptados: JPG, PNG, PDF (Máx. 5MB)</small>
+                    <h3>Favor enviar comprobante de pago a este whatsApp <a target="_blank" href="https://api.whatsapp.com/send?phone=573213900071&amp;text=Buen%20d%C3%ADa%20Andrés,%20senvío%20mi%20comprobante%20de%20pago%20de...">321 390 0071</a></h3>
                 </div>
             </div>
         `,
