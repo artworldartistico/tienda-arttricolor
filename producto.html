@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Producto | ArtTricolor</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/producto.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header-mobile">
+            <h1 class="logo">ArtTricolor</h1>
+            <button class="open-menu" id="open-menu">
+                <i class="bi bi-list"></i>
+            </button>
+        </header>
+        
+        <aside>
+            <button class="close-menu" id="close-menu">
+                <i class="bi bi-x"></i>
+            </button>
+            <header>
+                <h1 class="logo">ArtTricolor</h1>
+            </header>
+            <nav>
+                <ul>
+                    <li>
+                        <a class="boton-menu boton-volver" href="./index.html">
+                            <i class="bi bi-arrow-return-left"></i> Seguir comprando
+                        </a>
+                    </li>
+                    <li>
+                        <a class="boton-menu boton-carrito" href="./carrito.html">
+                            <i class="bi bi-cart-fill"></i> Carrito <span id="numerito" class="numerito">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <footer>
+                <p class="texto-footer">© 2025 ArtTricolor</p>
+            </footer>
+        </aside>
+
+        <main class="main-producto">
+            <div id="producto-loading" class="loading">
+                <i class="bi bi-hourglass-split"></i> Cargando producto...
+            </div>
+            
+            <div id="producto-no-encontrado" class="producto-no-encontrado hidden">
+                <i class="bi bi-exclamation-circle"></i>
+                <h2>Producto no encontrado</h2>
+                <p>Lo sentimos, el producto que buscas no existe.</p>
+                <a href="./index.html" class="btn-volver">Volver a la tienda</a>
+            </div>
+
+            <div id="producto-contenido" class="producto-contenido hidden">
+                <!-- Sección principal del producto -->
+                <div class="producto-principal">
+                    <!-- Galería de imágenes -->
+                    <div class="producto-galeria">
+                        <div class="imagen-principal-container">
+                            <img id="imagen-principal" src="" alt="" class="imagen-principal">
+                            <button class="btn-zoom" id="btn-zoom">
+                                <i class="bi bi-zoom-in"></i>
+                            </button>
+                        </div>
+                        <div class="imagenes-miniaturas" id="imagenes-miniaturas">
+                            <!-- Se llenarán dinámicamente -->
+                        </div>
+                    </div>
+
+                    <!-- Información del producto -->
+                    <div class="producto-info">
+                        <div class="producto-categoria-badge" id="producto-categoria"></div>
+                        <h1 class="producto-titulo" id="producto-titulo"></h1>
+                        
+                        <div class="producto-precio-container">
+                            <span class="producto-precio" id="producto-precio"></span>
+                            <span class="producto-stock" id="producto-stock"></span>
+                        </div>
+
+                        <div class="producto-descripcion" id="producto-descripcion"></div>
+
+                        <!-- Control de cantidad -->
+                        <div class="cantidad-container">
+                            <label for="cantidad">Cantidad:</label>
+                            <div class="cantidad-control">
+                                <button class="btn-cantidad" id="btn-decrement">
+                                    <i class="bi bi-dash"></i>
+                                </button>
+                                <input type="number" id="input-quantity" class="input-quantity" value="1" min="1">
+                                <button class="btn-cantidad" id="btn-increment">
+                                    <i class="bi bi-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Botones de acción -->
+                        <div class="producto-acciones">
+                            <button class="btn-add-to-cart" id="btn-agregar-carrito">
+                                <i class="bi bi-cart-plus"></i>
+                                Agregar al carrito
+                            </button>
+                            <button class="btn-comprar-ahora" id="btn-comprar-ahora">
+                                <i class="bi bi-lightning-fill"></i>
+                                Comprar ahora
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Características del producto -->
+                <div class="producto-caracteristicas" id="producto-caracteristicas">
+                    <h3>Características destacadas</h3>
+                    <ul id="lista-caracteristicas">
+                        <!-- Se llenarán dinámicamente -->
+                    </ul>
+                </div>
+
+                <!-- Secciones desplegables -->
+                <div class="producto-detalles-extra">
+                    <div class="detalle-seccion">
+                        <button class="detalle-toggle active" data-target="descripcion-completa">
+                            <span>Descripción completa</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </button>
+                        <div class="detalle-contenido show" id="descripcion-completa">
+                            <p id="descripcion-texto"></p>
+                        </div>
+                    </div>
+
+                    <div class="detalle-seccion">
+                        <button class="detalle-toggle" data-target="envio-info">
+                            <span>Información de envío</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </button>
+                        <div class="detalle-contenido" id="envio-info">
+                            <p>Descarga inmediata 100% digital.</p>
+                        </div>
+                    </div>
+
+                    <div class="detalle-seccion">
+                        <button class="detalle-toggle" data-target="garantia-info">
+                            <span>Garantía y devoluciones</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </button>
+                        <div class="detalle-contenido" id="garantia-info">
+                            <p>Todos nuestros productos cuentan con garantía de 30 días.</p>
+                            <p>Aceptamos devoluciones dentro de los primeros 15 días.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal para zoom de imagen -->
+    <div id="modal-zoom" class="modal-zoom hidden">
+        <button class="modal-close" id="modal-close">
+            <i class="bi bi-x-lg"></i>
+        </button>
+        <img id="modal-imagen" src="" alt="">
+    </div>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./js/menu.js"></script>
+    <script src="./js/producto-detalle.js"></script>
+</body>
+</html>
