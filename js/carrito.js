@@ -148,6 +148,15 @@ function comprarCarrito() {
         `;
     });
 
+    // Generar detalles completos para copiar (Nequi/Daviplata)
+    let detallesParaCopiar = '';
+    productosEnCarrito.forEach((producto, index) => {
+        detallesParaCopiar += `${index + 1}. ${producto.titulo} x${producto.cantidad} = $${(producto.precio * producto.cantidad).toLocaleString('es-CO')}`;
+        if (index < productosEnCarrito.length - 1) {
+            detallesParaCopiar += ' | ';
+        }
+    });
+
     Swal.fire({
         title: '<i class="bi bi-cart-check"></i> Finalizar Compra',
         html: `
@@ -206,10 +215,10 @@ function comprarCarrito() {
                                     </div>
                                 </div>
                                 <div class="info-row">
-                                    <span>Detalles:</span>
+                                    <span>Detalles del pedido:</span>
                                     <div class="copy-group">
-                                        <strong id="nequi-details-text">Pedido ArtTricolor</strong>
-                                        <button class="copy-btn" onclick="copiarTexto('Pedido ArtTricolor', 'Detalles copiados')">
+                                        <strong id="nequi-details-text" style="font-size: 0.85rem; line-height: 1.4;">${detallesParaCopiar}</strong>
+                                        <button class="copy-btn" onclick="copiarTexto('${detallesParaCopiar.replace(/'/g, "\\'")}', 'Detalles copiados')">
                                             <i class="bi bi-clipboard"></i>
                                         </button>
                                     </div>
@@ -249,10 +258,10 @@ function comprarCarrito() {
                                     </div>
                                 </div>
                                 <div class="info-row">
-                                    <span>Detalles:</span>
+                                    <span>Detalles del pedido:</span>
                                     <div class="copy-group">
-                                        <strong id="daviplata-details-text">Pedido ArtTricolor</strong>
-                                        <button class="copy-btn" onclick="copiarTexto('Pedido ArtTricolor', 'Detalles copiados')">
+                                        <strong id="daviplata-details-text" style="font-size: 0.85rem; line-height: 1.4;">${detallesParaCopiar}</strong>
+                                        <button class="copy-btn" onclick="copiarTexto('${detallesParaCopiar.replace(/'/g, "\\'")}', 'Detalles copiados')">
                                             <i class="bi bi-clipboard"></i>
                                         </button>
                                     </div>
@@ -306,7 +315,20 @@ function comprarCarrito() {
 
                 <!-- Upload de Comprobante -->
                 <div class="upload-section">
-                    <h3>Favor enviar comprobante de pago a este whatsApp <a target="_blank" href="https://api.whatsapp.com/send?phone=573213900071&amp;text=Buen%20d%C3%ADa%20Andrés,%20envío%20mi%20comprobante%20de%20pago%20de...">321 390 0071</a></h3>
+                    <h3><i class="bi bi-file-earmark-arrow-up-fill"></i> Comprobante de Pago</h3>
+                    <div class="upload-area" id="upload-area">
+                        <i class="bi bi-cloud-upload"></i>
+                        <p>Arrastra tu comprobante aquí o haz clic para seleccionar</p>
+                        <input type="file" id="comprobante-input" accept="image/*,.pdf" style="display: none;">
+                        <div id="file-preview" style="display: none;">
+                            <i class="bi bi-file-check"></i>
+                            <span id="file-name"></span>
+                            <button class="remove-file" onclick="removerArchivo()">
+                                <i class="bi bi-x-circle"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <small style="color: #666;">Formatos aceptados: JPG, PNG, PDF (Máx. 5MB)</small>
                 </div>
             </div>
         `,
@@ -495,36 +517,131 @@ function procesarPedido(total) {
         return false;
     }
 
+    // Verificar si hay productos digitales
+    const productosDigitales = productosEnCarrito.filter(p => p.tipo === "digital");
+    const hayProductosDigitales = productosDigitales.length > 0;
+
+    // ============================================================
+// SUBIR COMPROBANTE A GOOGLE DRIVE
+// ============================================================
+
+// TU URL DE GOOGLE APPS SCRIPT
+const API_URL = "https://script.google.com/macros/s/AKfycbzT1hm0kpdbvN0cgEcTj1DE9Bf5doIbSW4baw3zi0TQPLy0ptwWA1LK_4r8xYfzxGa9/exec";
+
+// Convertir archivo a base64
+const reader = new FileReader();
+reader.readAsDataURL(comprobanteArchivo);
+reader.onload = function() {
+    const base64File = reader.result;
+    
+    // Preparar datos
+    const dataToSend = {
+        nombre: nombre,
+        correo: correo,
+        total: total,
+        productos: body, // El detalle completo
+        comprobante: base64File,
+        nombreArchivo: comprobanteArchivo.name,
+        tipoArchivo: comprobanteArchivo.type
+    };
+    
+    // Enviar a Google Apps Script
+    fetch(API_URL, {
+        method: 'POST',
+        body: JSON.stringify(dataToSend)
+    })
+    .then(response => response.json())
+    .then(result => {
+        if (result.success) {
+            console.log("✅ Comprobante subido a Drive:", result.url);
+            // El vendedor recibirá email con el enlace
+        } else {
+            console.error("❌ Error al subir comprobante:", result.error);
+        }
+    })
+    .catch(error => {
+        console.error("❌ Error de conexión:", error);
+    });
+};
+
     // Construir mensajes
+    // Construir email para el VENDEDOR
     let body = `NUEVO PEDIDO - ArtTricolor\n\n`;
+    body += `═══════════════════════════════════════\n`;
     body += `DATOS DEL CLIENTE:\n`;
+    body += `═══════════════════════════════════════\n`;
     body += `Nombre: ${nombre}\n`;
     body += `Teléfono: ${telefono}\n`;
     body += `Email: ${correo}\n`;
     body += `Ciudad: ${ciudad}\n`;
     body += `País: ${pais}\n\n`;
-    body += `MÉTODO DE PAGO: ${metodoPago.value.toUpperCase()}\n\n`;
-    body += `PRODUCTOS:\n`;
-    productosEnCarrito.forEach((item) => {
-        body += `- ${item.titulo}\n`;
-        body += `  Cantidad: ${item.cantidad}\n`;
-        body += `  Precio unitario: $${item.precio.toLocaleString('es-CO')}\n`;
-        body += `  Subtotal: $${(item.precio * item.cantidad).toLocaleString('es-CO')}\n\n`;
+    
+    body += `═══════════════════════════════════════\n`;
+    body += `MÉTODO DE PAGO: ${metodoPago.value.toUpperCase()}\n`;
+    body += `═══════════════════════════════════════\n\n`;
+    
+    body += `PRODUCTOS COMPRADOS:\n`;
+    body += `───────────────────────────────────────\n`;
+    productosEnCarrito.forEach((item, index) => {
+        body += `${index + 1}. ${item.titulo}\n`;
+        body += `   Cantidad: ${item.cantidad}\n`;
+        body += `   Precio unitario: $${item.precio.toLocaleString('es-CO')}\n`;
+        body += `   Subtotal: $${(item.precio * item.cantidad).toLocaleString('es-CO')}\n`;
+        
+        // Si es producto digital, incluir enlace de descarga
+        if (item.tipo === "digital" && item.archivoDescarga) {
+            body += `   📥 DESCARGA: ${item.archivoDescarga}\n`;
+        }
+        body += `\n`;
     });
+    body += `───────────────────────────────────────\n`;
     body += `TOTAL: $${total.toLocaleString('es-CO')}\n\n`;
-    body += `Comprobante adjunto: ${comprobanteArchivo.name}`;
+    body += `Comprobante adjunto: ${comprobanteArchivo.name}\n\n`;
+    
+    if (hayProductosDigitales) {
+        body += `⚠️ IMPORTANTE: Este pedido incluye productos digitales.\n`;
+        body += `Verifica el pago y envía los enlaces de descarga al cliente.\n`;
+    }
 
+    // Construir email para el CLIENTE
     let confirmacionBody = `¡Gracias por tu compra, ${nombre}!\n\n`;
     confirmacionBody += `Hemos recibido tu pedido correctamente.\n\n`;
-    confirmacionBody += `RESUMEN DE TU PEDIDO:\n\n`;
-    productosEnCarrito.forEach((item) => {
-        confirmacionBody += `- ${item.titulo} x${item.cantidad} = $${(item.precio * item.cantidad).toLocaleString('es-CO')}\n`;
+    
+    confirmacionBody += `═══════════════════════════════════════\n`;
+    confirmacionBody += `RESUMEN DE TU PEDIDO:\n`;
+    confirmacionBody += `═══════════════════════════════════════\n\n`;
+    
+    productosEnCarrito.forEach((item, index) => {
+        confirmacionBody += `${index + 1}. ${item.titulo}\n`;
+        confirmacionBody += `   Cantidad: ${item.cantidad}\n`;
+        confirmacionBody += `   Precio: $${(item.precio * item.cantidad).toLocaleString('es-CO')}\n`;
+        
+        // Si es producto digital, incluir enlace de descarga para el cliente
+        if (item.tipo === "digital" && item.archivoDescarga) {
+            confirmacionBody += `\n   🎁 ¡Tu producto digital está listo!\n`;
+            confirmacionBody += `   📥 DESCARGA AQUÍ: ${item.archivoDescarga}\n`;
+            confirmacionBody += `   Puedes descargar este producto las veces que necesites.\n`;
+        }
+        confirmacionBody += `\n`;
     });
-    confirmacionBody += `\nTOTAL: $${total.toLocaleString('es-CO')}\n\n`;
+    
+    confirmacionBody += `───────────────────────────────────────\n`;
+    confirmacionBody += `TOTAL PAGADO: $${total.toLocaleString('es-CO')}\n`;
     confirmacionBody += `Método de pago: ${metodoPago.value.toUpperCase()}\n\n`;
+    
+    if (hayProductosDigitales) {
+        confirmacionBody += `═══════════════════════════════════════\n`;
+        confirmacionBody += `PRODUCTOS DIGITALES:\n`;
+        confirmacionBody += `═══════════════════════════════════════\n`;
+        confirmacionBody += `Los enlaces de descarga están incluidos arriba.\n`;
+        confirmacionBody += `Si tienes problemas para descargar, responde este email.\n`;
+        confirmacionBody += `Tienes acceso ilimitado a tus descargas.\n\n`;
+    }
+    
     confirmacionBody += `Procesaremos tu pedido en las próximas 24 horas.\n`;
-    confirmacionBody += `Te contactaremos al ${telefono} para confirmar el envío.\n\n`;
-    confirmacionBody += `¡Gracias por confiar en ArtTricolor!`;
+    confirmacionBody += `Te contactaremos al ${telefono} para confirmar.\n\n`;
+    confirmacionBody += `Si tienes alguna pregunta, responde este email.\n\n`;
+    confirmacionBody += `¡Gracias por confiar en ArtTricolor!\n`;
 
     // ============================================================================
     // CONFIGURACIÓN DE EMAILJS - REEMPLAZA CON TUS DATOS
