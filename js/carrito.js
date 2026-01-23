@@ -278,7 +278,7 @@ function comprarCarrito() {
                         <input type="radio" name="payment" id="banco-falabella" value="banco-falabella">
                         <label for="banco-falabella" class="payment-label">
                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsuKuWUvzxa_lLY_D6t8jDGmkEKsV7oTC4lw&s" alt="Banco Falabella">
-                            <span>banco-falabella</span>
+                            <span>Banco Falabella</span>
                         </label>
                         <div class="payment-details" id="banco-falabella-details" style="display: none;">
                             <div class="payment-info">
