@@ -977,3 +977,27 @@ input[type="radio"] {
 .checkout-popup {
     animation: fadeIn 0.3s ease;
 }
+
+/*ESTILO DEL LOGO*/
+.logo {
+    font-weight: 400;
+    font-size: 1.3rem;
+    padding: 0;
+    margin: 0;
+}
+
+/* Estilos para el logo como imagen */
+.logo-img {
+    max-width: 180px;      /* Ajusta según tu logo */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+
+/* Responsive para logo */
+@media screen and (max-width: 850px) {
+    .logo-img {
+        max-width: 150px;  /* Más pequeño en móviles */
+    }
+}
