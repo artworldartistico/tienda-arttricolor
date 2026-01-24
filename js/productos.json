@@ -3,7 +3,7 @@
         "id": "diseno-cuaderno-escolar-naturaleza-abstracta",
         "titulo": "Diseño de cuaderno escolar Naturaleza Abstracta",
         "precio": 75000,
-        "descripcion": "Diseño de cuaderno escolar listo para imprimir en modo CMYK con portada, contraportada, insertos con metas para el 2026, calendario, diseño de planificador de presupuesto y hojas internas cuadriculadas. Ideal para la temporada de regreso a clases o uso profesional.",
+        "descripcion": "Este diseño profesional de cuaderno escolar con temática de Naturaleza Abstracta ha sido creado para quienes buscan un cuaderno moderno, armonioso y funcional para la temporada escolar 2026.\n\nEs ideal para papelerías, emprendedores y padres que desean producir cuadernos de calidad sin preocuparse por configuraciones técnicas de impresión.",
         "imagenes": [
             "img/cuaderno-naturaleza-abstracta/portada-cuaderno-naturaleza-abstracta.png",
             "img/cuaderno-naturaleza-abstracta/cuaderno-naturaleza-abstracta.png"
@@ -13,9 +13,37 @@
             "id": "articulos-escolares"
         },
         "caracteristicas": [
-            "Descarga inmediata en PDF",
-            "Diseño de portada, contraportada, hojas internas cuadriculadas e insertos",
-            "En modo CMYK con marcas de límite, sangrado y listo para imprimir"
+            "📄 Formato PDF",
+            "🎨 CMYK separado por color",
+            "✂️ Incluye marcas de límite y sangrado",
+            "🖨️ Listo para impresión digital u offset"
+        ],
+        "camposAdicionales": [
+            {
+                "titulo": "📦 Incluye",
+                "items": [
+                    "✔ Portada",
+                    "✔ Contraportada",
+                    "✔ Hojas internas cuadriculadas",
+                    "✔ Metas de ahorro",
+                    "✔ Calendario",
+                    "✔ Planificador de presupuesto mensual"
+                ]
+            },
+            {
+                "titulo": "🎯 Ideal para",
+                "items": [
+                    "🎒 Papelerías y negocios de impresión",
+                    "👨‍👩‍👧 Papás que buscan cuadernos prácticos y estéticamente agradables",
+                    "📚 Uso escolar, académico o personal"
+                ]
+            },
+            {
+                "titulo": "Beneficios",
+                "items": [
+                    "💡 Produce cuadernos funcionales, visualmente atractivos y listos para vender o regalar, sin perder tiempo en ajustes técnicos."
+                ]
+            }
         ],
         "tipo": "digital",
         "archivoDescarga": "https://drive.google.com/file/d/1z6NeaL_fgh9rAaxqvvn1DrWGJ4d8DVyX/view?usp=drive_link",
@@ -26,7 +54,7 @@
         "id": "diseno-cuaderno-escolar-anime-medieval",
         "titulo": "Diseño de cuaderno escolar Anime Medieval",
         "precio": 100000,
-        "descripcion": "Diseño de cuaderno escolar listo para imprimir en modo CMYK con portada, contraportada, insertos con metas para el 2026, calendario, diseño de planificador de presupuesto y hojas internas cuadriculadas. Ideal para la temporada de regreso a clases o uso profesional.",
+        "descripcion": "Este diseño profesional de cuaderno escolar estilo Anime Medieval ha sido creado para emprendedores, papelerías y padres que buscan un cuaderno diferente, llamativo y listo para producción en la temporada escolar 2026.\n\nEl archivo está optimizado para impresión profesional, permitiéndote producir cuadernos sin preocuparte por ajustes técnicos.",
         "imagenes": [
             "img/cuaderno-fantasia-medieval/portada-cuaderno-fantasia-anime-medieval.png",
             "img/cuaderno-fantasia-medieval/cuaderno-fantasia-medieval-anime.png"
@@ -36,9 +64,37 @@
             "id": "articulos-escolares"
         },
         "caracteristicas": [
-            "Descarga inmediata en PDF",
-            "Diseño de portada, contraportada, hojas internas cuadriculadas e insertos",
-            "En modo CMYK con marcas de límite, sangrado y listo para imprimir"
+            "📄 Formato PDF",
+            "🎨 CMYK separado por color",
+            "✂️ Incluye marcas de límite y sangrado",
+            "🖨️ Listo para impresión digital u offset"
+        ],
+        "camposAdicionales": [
+            {
+                "titulo": "📦 Incluye",
+                "items": [
+                    "✔ Portada",
+                    "✔ Contraportada",
+                    "✔ Hojas internas cuadriculadas",
+                    "✔ Calendario escolar",
+                    "✔ Horario escolar",
+                    "✔ Página de objetivos del año"
+                ]
+            },
+            {
+                "titulo": "🎯 Ideal para",
+                "items": [
+                    "🎒 Papelerías que desean vender cuadernos personalizados",
+                    "👨‍👩‍👧 Papás que quieren un cuaderno diferente y de calidad",
+                    "🚀 Emprendedores que buscan productos listos para comercializar"
+                ]
+            },
+            {
+                "titulo": "Beneficios",
+                "items": [
+                    "💡 Ahorra tiempo, evita errores de impresión y crea tu propia línea de cuadernos escolares con un diseño único."
+                ]
+            }
         ],
         "tipo": "digital",
         "archivoDescarga": "https://drive.google.com/file/d/1kcLA-ssmA4qa-NRKM9l0p3LyMNMzMNte/view?usp=drive_link",
