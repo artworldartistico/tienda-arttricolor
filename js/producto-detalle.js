@@ -54,8 +54,11 @@ function mostrarProducto() {
     // Actualizar información básica
     document.getElementById("producto-titulo").textContent = productoActual.titulo;
     document.getElementById("producto-precio").textContent = `$${productoActual.precio.toLocaleString('es-CO')}`;
-    document.getElementById("producto-descripcion").textContent = productoActual.descripcion;
-    document.getElementById("descripcion-texto").textContent = productoActual.descripcion;
+    
+    // Convertir saltos de línea \n a <br> para HTML
+    document.getElementById("producto-descripcion").innerHTML = productoActual.descripcion.replace(/\n/g, '<br>');
+    document.getElementById("descripcion-texto").innerHTML = productoActual.descripcion.replace(/\n/g, '<br>');
+    
     document.getElementById("producto-categoria").textContent = productoActual.categoria.nombre;
     
     // Stock (diferente para productos digitales)
@@ -100,10 +103,79 @@ function mostrarProducto() {
         document.getElementById("producto-caracteristicas").style.display = "none";
     }
     
+    // ============================================================
+    // MOSTRAR CAMPOS ADICIONALES DINÁMICOS
+    // ============================================================
+    mostrarCamposAdicionales();
+    
     // Agregar información específica de producto digital
     if (esDigital) {
         agregarInfoDigital();
     }
+    
+    // Inicializar toggles después de que todo esté cargado
+    inicializarToggles();
+}
+
+function mostrarCamposAdicionales() {
+    // Verificar si el producto tiene campos adicionales
+    if (!productoActual.camposAdicionales || productoActual.camposAdicionales.length === 0) {
+        return; // No mostrar nada si no hay campos adicionales
+    }
+    
+    // Obtener la primera sección desplegable (Descripción completa)
+    const descripcionSeccion = document.querySelector(".producto-detalles-extra .detalle-seccion");
+    
+    if (!descripcionSeccion) {
+        console.error("No se encontró la sección de descripción");
+        return;
+    }
+    
+    // Crear HTML para cada campo adicional con la misma estructura
+    productoActual.camposAdicionales.forEach((campo, index) => {
+        const campoId = `campo-adicional-${index}`;
+        
+        // Convertir items array a párrafos <p> (igual que las secciones nativas)
+        const itemsHTML = campo.items.map(item => `<p>${item}</p>`).join('');
+        
+        const campoHTML = `
+            <div class="detalle-seccion">
+                <button class="detalle-toggle" data-target="${campoId}">
+                    <span>${campo.titulo}</span>
+                    <i class="bi bi-chevron-down"></i>
+                </button>
+                <div class="detalle-contenido" id="${campoId}">
+                    ${itemsHTML}
+                </div>
+            </div>
+        `;
+        
+        // Insertar DESPUÉS de la descripción completa (afterend)
+        descripcionSeccion.insertAdjacentHTML('beforeend', campoHTML);
+    });
+}
+
+function inicializarToggles() {
+    document.querySelectorAll(".detalle-toggle").forEach(toggle => {
+        // Remover eventos anteriores para evitar duplicados
+        const newToggle = toggle.cloneNode(true);
+        toggle.parentNode.replaceChild(newToggle, toggle);
+        
+        newToggle.addEventListener("click", () => {
+            const targetId = newToggle.getAttribute("data-target");
+            const contenido = document.getElementById(targetId);
+            const icon = newToggle.querySelector("i");
+            
+            newToggle.classList.toggle("active");
+            contenido.classList.toggle("show");
+            
+            if (contenido.classList.contains("show")) {
+                icon.style.transform = "rotate(180deg)";
+            } else {
+                icon.style.transform = "rotate(0deg)";
+            }
+        });
+    });
 }
 
 function agregarInfoDigital() {
@@ -146,7 +218,9 @@ function agregarInfoDigital() {
     
     // Insertar después de las características
     const caracteristicasDiv = document.getElementById("producto-caracteristicas");
-    caracteristicasDiv.insertAdjacentHTML('afterend', infoDigitalHTML);
+    if (caracteristicasDiv) {
+        caracteristicasDiv.insertAdjacentHTML('afterend', infoDigitalHTML);
+    }
 }
 
 function configurarGaleria() {
@@ -186,7 +260,6 @@ let cantidad = 1;
 btnIncrement.addEventListener("click", () => {
     const esDigital = productoActual && productoActual.tipo === "digital";
     if (esDigital) {
-        // Productos digitales: siempre cantidad 1
         cantidad = 1;
         inputQuantity.value = 1;
         return;
@@ -208,7 +281,6 @@ btnDecrement.addEventListener("click", () => {
 inputQuantity.addEventListener("change", (e) => {
     const esDigital = productoActual && productoActual.tipo === "digital";
     if (esDigital) {
-        // Productos digitales: siempre cantidad 1
         cantidad = 1;
         inputQuantity.value = 1;
         return;
@@ -239,7 +311,6 @@ function agregarAlCarrito() {
     const productoExistente = productosEnCarrito.find(p => p.id === productoActual.id);
     
     if (productoExistente) {
-        // Para productos digitales, siempre cantidad 1 (se pueden comprar múltiples licencias)
         if (esDigital) {
             productoExistente.cantidad = 1;
         } else {
@@ -255,7 +326,6 @@ function agregarAlCarrito() {
     localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
     actualizarNumerito();
     
-    // Mostrar notificación
     Toastify({
         text: esDigital ? 'Producto digital agregado - Descarga tras pago' : `${cantidad} ${cantidad === 1 ? 'producto agregado' : 'productos agregados'} al carrito`,
         duration: 3000,
@@ -275,7 +345,6 @@ function agregarAlCarrito() {
         }
     }).showToast();
     
-    // Resetear cantidad solo para productos físicos
     if (!esDigital) {
         cantidad = 1;
         inputQuantity.value = 1;
@@ -285,7 +354,6 @@ function agregarAlCarrito() {
 // Comprar ahora
 btnComprarAhora.addEventListener("click", () => {
     agregarAlCarrito();
-    // Redirigir al carrito después de un breve delay
     setTimeout(() => {
         window.location.href = "./carrito.html";
     }, 500);
@@ -316,24 +384,6 @@ function cerrarModal() {
     modalZoom.classList.add("hidden");
     document.body.style.overflow = "auto";
 }
-
-// Secciones desplegables
-document.querySelectorAll(".detalle-toggle").forEach(toggle => {
-    toggle.addEventListener("click", () => {
-        const targetId = toggle.getAttribute("data-target");
-        const contenido = document.getElementById(targetId);
-        const icon = toggle.querySelector("i");
-        
-        toggle.classList.toggle("active");
-        contenido.classList.toggle("show");
-        
-        if (contenido.classList.contains("show")) {
-            icon.style.transform = "rotate(180deg)";
-        } else {
-            icon.style.transform = "rotate(0deg)";
-        }
-    });
-});
 
 // Inicializar
 cargarProducto();
