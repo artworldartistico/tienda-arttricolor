@@ -587,3 +587,53 @@
         max-width: 150px;  /* Más pequeño en móviles */
     }
 }
+
+/* ============================================================
+   MOSTRAR BADGE sin perder el degradado del precio
+   ============================================================ */
+
+/* Forzar visibilidad del badge */
+.descuento-badge {
+    /* Anular la transparencia heredada */
+    background: linear-gradient(135deg, #27ae60 0%, #229954 100%) !important;
+    -webkit-background-clip: border-box !important;
+    background-clip: border-box !important;
+    
+    /* Texto blanco visible */
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    
+    /* Estilos */
+    display: inline-block !important;
+    padding: 0.3rem 0.8rem !important;
+    border-radius: 2rem !important;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    box-shadow: 0 2px 8px rgba(39, 174, 96, 0.3) !important;
+    animation: pulseBadge 2s infinite !important;
+}
+
+/* Precio original (tachado) */
+.precio-original {
+    -webkit-text-fill-color: #999 !important;
+    text-decoration: line-through !important;
+    font-size: 1.2rem !important;
+    color: #999 !important;
+}
+
+/* Precio rebajado (rojo) */
+.precio-rebajado {
+    -webkit-text-fill-color: transparent !important;
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    font-size: 2rem !important;
+    font-weight: 700 !important;
+}
+
+@keyframes pulseBadge {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
