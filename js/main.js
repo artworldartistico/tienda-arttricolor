@@ -60,7 +60,15 @@ function cargarProductos(productosElegidos) {
             </div>
             <div class="producto-detalles">
                 <h3 class="producto-titulo">${producto.titulo}</h3>
-                <p class="producto-precio">$${producto.precio.toLocaleString('es-CO')}</p>
+                ${producto.precioRebajado ? `
+                    <div class="producto-precio">
+                        <span class="precio-original">$${producto.precio.toLocaleString('es-CO')}</span>
+                        <span class="precio-rebajado">$${producto.precioRebajado.toLocaleString('es-CO')}</span>
+                        <span class="descuento-badge">-${Math.round(((producto.precio - producto.precioRebajado) / producto.precio) * 100)}%</span>
+                    </div>
+                ` : `
+                    <p class="producto-precio">$${producto.precio.toLocaleString('es-CO')}</p>
+                `}
                 <div class="producto-acciones-container">
                     <button class="producto-agregar" id="${producto.id}" ${!tieneStock ? 'disabled' : ''}>
                         <i class="bi bi-${esDigital ? 'download' : 'cart-plus'}"></i> ${agotado ? 'Agotado' : (esDigital ? 'Comprar' : 'Agregar')}
@@ -227,8 +235,16 @@ function agregarAlCarrito(e) {
             return;
         }
     } else {
-        productoAgregado.cantidad = 1;
-        productosEnCarrito.push(productoAgregado);
+        // ============================================================
+        // CAMBIO IMPORTANTE: Usar precio rebajado si existe
+        // ============================================================
+        const productoParaCarrito = {
+            ...productoAgregado,
+            precio: productoAgregado.precioRebajado || productoAgregado.precio,
+            cantidad: 1
+        };
+        productosEnCarrito.push(productoParaCarrito);
+        // ============================================================
     }
 
     actualizarNumerito();
