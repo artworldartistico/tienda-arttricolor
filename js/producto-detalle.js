@@ -53,7 +53,26 @@ function mostrarProducto() {
     
     // Actualizar información básica
     document.getElementById("producto-titulo").textContent = productoActual.titulo;
-    document.getElementById("producto-precio").textContent = `$${productoActual.precio.toLocaleString('es-CO')}`;
+    
+    // ============================================================
+    // MOSTRAR PRECIO (Normal o Rebajado)
+    // ============================================================
+    const precioElement = document.getElementById("producto-precio");
+
+    if (productoActual.precioRebajado) {
+        // Producto con descuento
+        const descuento = Math.round(((productoActual.precio - productoActual.precioRebajado) / productoActual.precio) * 100);
+        
+        precioElement.innerHTML = `
+            <span class="precio-original">$${productoActual.precio.toLocaleString('es-CO')}</span>
+            <span class="precio-rebajado">$${productoActual.precioRebajado.toLocaleString('es-CO')}</span>
+            <span class="descuento-badge">-${descuento}%</span>
+        `;
+    } else {
+        // Precio normal
+        precioElement.textContent = `$${productoActual.precio.toLocaleString('es-CO')}`;
+    }
+    // ============================================================
     
     // Convertir saltos de línea \n a <br> para HTML
     document.getElementById("producto-descripcion").innerHTML = productoActual.descripcion.replace(/\n/g, '<br>');
@@ -309,6 +328,13 @@ function agregarAlCarrito() {
     let productosEnCarrito = JSON.parse(localStorage.getItem("productos-en-carrito")) || [];
     
     const productoExistente = productosEnCarrito.find(p => p.id === productoActual.id);
+
+    // Crear objeto producto con el precio correcto
+    const productoParaCarrito = {
+        ...productoActual,
+        precio: productoActual.precioRebajado || productoActual.precio, // Usar precio rebajado si existe
+        cantidad: esDigital ? 1 : cantidad
+    };
     
     if (productoExistente) {
         if (esDigital) {
@@ -316,11 +342,10 @@ function agregarAlCarrito() {
         } else {
             productoExistente.cantidad += cantidad;
         }
+        // Actualizar precio por si cambió
+        productoExistente.precio = productoActual.precioRebajado || productoActual.precio;
     } else {
-        productosEnCarrito.push({
-            ...productoActual,
-            cantidad: esDigital ? 1 : cantidad
-        });
+        productosEnCarrito.push(productoParaCarrito);
     }
     
     localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
