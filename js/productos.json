@@ -3,6 +3,7 @@
         "id": "diseno-cuaderno-escolar-naturaleza-abstracta",
         "titulo": "Diseño de cuaderno escolar Naturaleza Abstracta",
         "precio": 75000,
+        "precioRebajado": 30000,
         "descripcion": "Este diseño profesional de cuaderno escolar con temática de Naturaleza Abstracta ha sido creado para quienes buscan un cuaderno moderno, armonioso y funcional para la temporada escolar 2026.\n\nEs ideal para papelerías, emprendedores y padres que desean producir cuadernos de calidad sin preocuparse por configuraciones técnicas de impresión.",
         "imagenes": [
             "img/cuaderno-naturaleza-abstracta/portada-cuaderno-naturaleza-abstracta.png",
@@ -54,6 +55,7 @@
         "id": "diseno-cuaderno-escolar-anime-medieval",
         "titulo": "Diseño de cuaderno escolar Anime Medieval",
         "precio": 100000,
+        "precioRebajado": 40000,
         "descripcion": "Este diseño profesional de cuaderno escolar estilo Anime Medieval ha sido creado para emprendedores, papelerías y padres que buscan un cuaderno diferente, llamativo y listo para producción en la temporada escolar 2026.\n\nEl archivo está optimizado para impresión profesional, permitiéndote producir cuadernos sin preocuparte por ajustes técnicos.",
         "imagenes": [
             "img/cuaderno-fantasia-medieval/portada-cuaderno-fantasia-anime-medieval.png",
