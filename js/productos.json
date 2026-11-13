@@ -104,5 +104,184 @@
         "archivoDescarga": "https://drive.google.com/file/d/1kcLA-ssmA4qa-NRKM9l0p3LyMNMzMNte/view?usp=drive_link",
         "tamanoArchivo": "6,24 MB",
         "formato": "PDF"
+    },
+    {
+        "id": "pesebre-artesanal-colonial",
+        "titulo": "Pesebre artesanal colonial",
+        "precio": 85000,
+        "precioRebajado": 60000,
+        "descripcion": "Pesebre artesanal 100% hecho a mano, incluye:\n\n        - Figuras de María, José, Niño Dios, mula, buey y tres Reyes Magos, elaboradas en porcelanicrón.\n        - 3 casas y 1 iglesia de estilo colonial, elaboradas en balso, cartón y cartulina, con bases en poliestireno. La iluminación interior está incluida únicamente en la iglesia; las tres casas no cuentan con iluminación.\n        - Base decorativa elaborada en cartón corrugado de doble pared e icopor, forrada en yersilón y decorada con grama sintética, piedras y bordes con millare.\n\n        Cada elemento está elaborado artesanalmente para crear un hermoso conjunto navideño, lleno de detalles y tradición, ideal para representar el nacimiento del Niño Dios.\n\n        Producto hecho a mano: Puede presentar pequeñas variaciones en sus acabados y detalles.",
+        "imagenes": [
+            "img/pesebres/pesebre-artesanal-colonial.jpeg"
+        ],
+        "categoria": {
+            "nombre": "Temporada de Navidad",
+            "id": "temporada-navidad"
+        },
+        "tipo": "fisico",
+        "stock": 6
+    },
+    {
+        "id": "pesebre-artesanal-rabe",
+        "titulo": "Pesebre artesanal árabe",
+        "precio": 85000,
+        "precioRebajado": 60000,
+        "descripcion": "Pesebre artesanal 100% hecho a mano, incluye:\n\n        - Figuras de María, José, Niño Dios, mula, buey y tres Reyes Magos, elaboradas en porcelanicrón.\n        - 3 casas y 1 castillo de estilo árabe, elaborados en cartón, cartulina y con bases en poliestireno. El castillo cuenta con iluminación interior incluida; las tres casas no cuentan con iluminación.\n        - Base decorativa elaborada en cartón corrugado de doble pared e icopor, forrada en yersilón y decorada con grama sintética, piedras y bordes con millare.\n\n        Cada elemento está elaborado artesanalmente para crear un hermoso conjunto navideño, lleno de detalles y tradición, ideal para representar el nacimiento del Niño Dios.\n\n        Producto hecho a mano: Puede presentar pequeñas variaciones en sus acabados y detalles.",
+        "imagenes": [
+            "img/pesebres/pesebre-artesanal-arabe.jpeg"
+        ],
+        "categoria": {
+            "nombre": "Temporada de Navidad",
+            "id": "temporada-navidad"
+        },
+        "tipo": "fisico",
+        "stock": 7
+    },
+    {
+        "id": "pesebre-en-porcelanicr-n",
+        "titulo": "Pesebre en Porcelanicrón",
+        "precio": 35000,
+        "precioRebajado": 30000,
+        "descripcion": "Pesebre artesanal 100% hecho a mano, incluye:\n        - María\n        - José\n        - Niño Dios\n        - Mula\n        - Buey\n        - Tres reyes magos\n        \n        Tamaño: Aproximadamente 5 cm",
+        "imagenes": [
+            "img/pesebres/pesebre-en-porcelanicron.jpg"
+        ],
+        "categoria": {
+            "nombre": "Temporada de Navidad",
+            "id": "temporada-navidad"
+        },
+        "tipo": "fisico",
+        "stock": 10
+    },
+    {
+        "id": "casa-para-pesebre-estilo-colonial-madera",
+        "titulo": "Casa para Pesebre – Estilo Colonial Madera 🎄🏡",
+        "precio": 5000,
+        "precioRebajado": 3000,
+        "descripcion": "Hermosa casita artesanal para complementar tu pesebre navideño, elaborada a mano con detalles que le dan una apariencia rústica y natural de madera.\n        \n        Materiales de elaboración:\n        \n        Estructura y paredes elaboradas con palitos de paleta o removedores de café de madera.\n        Base fabricada en poliestireno.\n        Techo elaborado en cartón corrugado, con acabado rústico que simula tejas.\n        Detalles decorativos hechos a mano.\n        Ideal para darle un toque tradicional, cálido y especial a tu nacimiento navideño.\n        \n        Producto artesanal: Cada pieza es elaborada cuidadosamente a mano, por lo que puede presentar pequeñas variaciones en sus acabados.\n        \n        Nota: No es madera maciza; está elaborada con palitos de madera y materiales complementarios.",
+        "imagenes": [
+            "img/pesebres/casa-pesebre-madera.jpeg",
+            "img/pesebres/casa-pesebre-madera-1.jpeg",
+            "img/pesebres/casa-pesebre-madera-2.jpeg"
+        ],
+        "categoria": {
+            "nombre": "Temporada de Navidad",
+            "id": "temporada-navidad"
+        },
+        "tipo": "fisico",
+        "stock": 22
+    },
+    {
+        "id": "casa-para-pesebre-estilo-ladrillo",
+        "titulo": "Casa para Pesebre - Estilo Ladrillo",
+        "precio": 5000,
+        "precioRebajado": 3000,
+        "descripcion": "Hermosa casa artesanal para pesebre, elaborada completamente a mano con un diseño rústico estilo ladrillo, ideal para darle un toque tradicional y acogedor a tu decoración navideña.\n\n        Materiales y detalles:\n        - Base fabricada en poliestireno.\n        - Paredes decoradas con ladrillos elaborados en cartón y pintados a mano.\n        - Acabado de los ladrillos con pintura acrílica para simular una construcción tradicional.\n        - Techo elaborado en cartón.\n        - Marcos de las ventanas elaborados con palitos de madera y pintados cuidadosamente.\n        - Detalles decorativos con acabado artesanal.\n\n        Producto hecho a mano, por lo que cada pieza puede presentar pequeñas variaciones en sus acabados.\n\n        Ideal para complementar tu pesebre y crear un ambiente navideño lleno de tradición.",
+        "imagenes": [
+            "img/pesebres/casa-pesebre-ladrillo.jpeg",
+            "img/pesebres/casa-pesebre-ladrillo-1.jpeg",
+            "img/pesebres/casa-pesebre-ladrillo-2.jpeg"
+        ],
+        "categoria": {
+            "nombre": "Temporada de Navidad",
+            "id": "temporada-navidad"
+        },
+        "tipo": "fisico",
+        "stock": 18
+    },
+    {
+        "id": "casa-para-pesebre-estilo-arabe",
+        "titulo": "Casa para Pesebre – Estilo Árabe 🕌✨",
+        "precio": 5000,
+        "precioRebajado": 3000,
+        "descripcion": "Hermosa casa artesanal para pesebre, inspirada en la arquitectura árabe, con detalles rústicos y acabados envejecidos que evocan las construcciones tradicionales de la época del nacimiento de Jesús.\n\n        Materiales de elaboración:\n\n        Estructura elaborada en cartón.\n        Base fabricada en acrílico.\n        Cúpula elaborada en icopor.\n        Recubrimiento en estuco para conseguir una textura rústica y artesanal.\n        Pintura acrílica aplicada cuidadosamente para dar color y personalidad a la construcción.\n        Acabado con betún de Judea para conseguir un efecto envejecido y darle un aspecto antiguo y tradicional.\n        Detalles decorativos elaborados a mano.\n\n        Ideal para complementar tu pesebre con un estilo inspirado en las construcciones de la época, creando un ambiente cálido, tradicional y lleno de encanto navideño.\n\n        Producto artesanal: Cada pieza es elaborada cuidadosamente a mano, por lo que puede presentar pequeñas variaciones en sus texturas, colores y acabados.\n\n        Nota: No está fabricada en piedra ni en materiales macizos; su apariencia rústica y antigua se consigue mediante técnicas artesanales de texturizado y pintura.",
+        "imagenes": [
+            "img/pesebres/casa-pesebre-arabe.jpeg",
+            "img/pesebres/casa-pesebre-arabe-1.jpeg"
+        ],
+        "categoria": {
+            "nombre": "Temporada de Navidad",
+            "id": "temporada-navidad"
+        },
+        "tipo": "fisico",
+        "stock": 10
+    },
+    {
+        "id": "iglesia-para-pesebre-artesanal",
+        "titulo": "Iglesia para Pesebre – Artesanal ⛪🎄",
+        "precio": 10000,
+        "precioRebajado": 8000,
+        "descripcion": "Hermosa iglesia artesanal para pesebre, elaborada a mano con detalles tradicionales e iluminación interior incluida, que le dará un toque especial, cálido y acogedor a tu nacimiento navideño.\n\n        Materiales de elaboración:\n\n        Base fabricada en poliestireno.\n        Paredes elaboradas en cartón.\n        Techo elaborado en cartón corrugado, con una textura que aporta un acabado rústico.\n        Cruz elaborada en palo de balso.\n        Pintura acrílica aplicada cuidadosamente para dar color y realzar cada detalle de la construcción.\n        Iluminación interior incluida para crear un ambiente cálido y resaltar la iglesia dentro del pesebre.\n        Acabados decorativos hechos a mano.\n\n        Ideal para complementar tu pesebre y representar un espacio de fe, tradición y espíritu navideño.\n\n        Producto artesanal: Cada pieza es elaborada cuidadosamente a mano, por lo que puede presentar pequeñas variaciones en sus colores, formas y acabados.\n\n        Nota: No está fabricada en madera ni en materiales macizos; está elaborada con cartón, poliestireno y palo de balso. Incluye iluminación interior.",
+        "imagenes": [
+            "img/pesebres/iglesia-pesebre.jpeg",
+            "img/pesebres/iglesia-pesebre-1.jpeg",
+            "img/pesebres/iglesia-pesebre-2.jpeg",
+            "img/pesebres/iglesia-pesebre-con-luz.jpeg",
+            "img/pesebres/iglesia-pesebre-con-luz-1.jpeg"
+        ],
+        "categoria": {
+            "nombre": "Temporada de Navidad",
+            "id": "temporada-navidad"
+        },
+        "tipo": "fisico",
+        "stock": 5
+    },
+    {
+        "id": "castillo-para-pesebre-estilo-arabe",
+        "titulo": "Castillo para Pesebre – Estilo Árabe 🕌🏰",
+        "precio": 10000,
+        "precioRebajado": 8000,
+        "descripcion": "Hermoso castillo artesanal para pesebre, inspirado en la arquitectura árabe, con muros de apariencia robusta, detalles rústicos y iluminación interior incluida, que recrean las antiguas construcciones de la época y aportan un toque especial a tu nacimiento navideño.\n\n        Materiales de elaboración:\n\n        Base fabricada en cartón.\n        Estructura y muros elaborados en cartón, con diseño que simula ladrillos macizos.\n        Cúpulas elaboradas en icopor.\n        Texturizado con masilla para conseguir un acabado rústico y una apariencia similar a las construcciones antiguas.\n        Pintura acrílica aplicada cuidadosamente para resaltar los detalles arquitectónicos.\n        Acabado con betún de Judea para crear un efecto envejecido y darle un aspecto antiguo y tradicional.\n        Iluminación interior incluida, que aporta calidez y realza la belleza del castillo.\n        Detalles decorativos elaborados a mano.\n\n        Ideal para complementar tu pesebre con una construcción de estilo árabe, aportando un ambiente histórico, tradicional y lleno de encanto.\n\n        Producto artesanal: Cada pieza es elaborada cuidadosamente a mano, por lo que puede presentar pequeñas variaciones en sus texturas, colores y acabados.\n\n        Nota: No está fabricado en piedra ni en ladrillos macizos; su apariencia se consigue mediante técnicas artesanales de construcción, texturizado y pintura. Incluye iluminación interior.",
+        "imagenes": [
+            "img/pesebres/castillo-arabe.jpeg",
+            "img/pesebres/castillo-arabe-1.jpeg",
+            "img/pesebres/castillo-arabe-2.jpeg",
+            "img/pesebres/castillo-arabe-con-luz.jpeg",
+            "img/pesebres/castillo-arabe-con-luz-1.jpeg"
+        ],
+        "categoria": {
+            "nombre": "Temporada de Navidad",
+            "id": "temporada-navidad"
+        },
+        "tipo": "fisico",
+        "stock": 4
+    },
+    {
+        "id": "portal-para-pesebre-estilo-arabe",
+        "titulo": "Portal para Pesebre – Estilo Árabe 🕌✨",
+        "precio": 10000,
+        "precioRebajado": 3000,
+        "descripcion": "Hermoso portal artesanal para nacimiento, inspirado en la arquitectura árabe, elaborado a mano con detalles rústicos y texturas que recrean las antiguas construcciones de la época del nacimiento de Jesús.\n\n        Materiales de elaboración:\n\n        Techo elaborado en cartón.\n        Paredes elaboradas en cartón.\n        Texturizado con masilla para crear relieves y acabados rústicos que simulan construcciones antiguas.\n        Pintura acrílica aplicada cuidadosamente para resaltar las texturas y detalles arquitectónicos.\n        Acabado con betún de Judea para conseguir un efecto envejecido, dando una apariencia antigua y tradicional.\n        Detalles decorativos elaborados a mano.\n\n        Ideal para recrear el lugar del nacimiento del Niño Dios y complementar tu pesebre con un ambiente árabe, rústico y lleno de tradición navideña.\n\n        Producto artesanal: Cada pieza es elaborada cuidadosamente a mano, por lo que puede presentar pequeñas variaciones en sus texturas, colores y acabados.\n\n        Nota: No está fabricado en piedra ni en materiales macizos; su apariencia rústica y antigua se consigue mediante técnicas artesanales de texturizado y pintura.",
+        "imagenes": [
+            "img/pesebres/portal-arabe.jpeg",
+            "img/pesebres/portal-arabe-1.jpeg",
+            "img/pesebres/portal-arabe-2.jpeg"
+        ],
+        "categoria": {
+            "nombre": "Temporada de Navidad",
+            "id": "temporada-navidad"
+        },
+        "tipo": "fisico",
+        "stock": 8
+    },
+    {
+        "id": "casa-para-pesebre-con-luz-estilo-ladrillo",
+        "titulo": "Casa para Pesebre con luz - Estilo Ladrillo",
+        "precio": 8000,
+        "precioRebajado": 5000,
+        "descripcion": "Hermosa casa artesanal para pesebre, elaborada completamente a mano con un diseño rústico estilo ladrillo e iluminación interior incluida, ideal para darle un toque tradicional y acogedor a tu decoración navideña.\n\n        Materiales y detalles:\n        - Base fabricada en poliestireno.\n        - Paredes decoradas con ladrillos elaborados en cartón y pintados a mano.\n        - Acabado de los ladrillos con pintura acrílica para simular una construcción tradicional.\n        - Techo elaborado en cartón.\n        - Marcos de las ventanas elaborados con palitos de madera y pintados cuidadosamente.\n        - Detalles decorativos con acabado artesanal.\n\n        Producto hecho a mano, por lo que cada pieza puede presentar pequeñas variaciones en sus acabados.\n\n        Ideal para complementar tu pesebre y crear un ambiente navideño lleno de tradición.",
+        "imagenes": [
+            "img/pesebres/casa-pesebre-ladrillo-con-luz.jpeg",
+            "img/pesebres/casa-pesebre-ladrillo-con-luz-1.jpeg",
+            "img/pesebres/casa-pesebre-ladrillo.jpeg",
+            "img/pesebres/casa-pesebre-ladrillo-1.jpeg",
+            "img/pesebres/casa-pesebre-ladrillo-2.jpeg"
+        ],
+        "categoria": {
+            "nombre": "Temporada de Navidad",
+            "id": "temporada-navidad"
+        },
+        "tipo": "fisico",
+        "stock": 4
     }
 ]
