@@ -4,13 +4,36 @@ fetch("./js/productos.json")
     .then(response => response.json())
     .then(data => {
         productos = data;
-        cargarProductos(productos);
+        aplicarFiltroDesdeURL();   // ← antes era cargarProductos(productos);
     })
     .catch(error => {
         console.error("Error al cargar productos:", error);
         const contenedorProductos = document.querySelector("#contenedor-productos");
         contenedorProductos.innerHTML = "<p style='text-align: center; padding: 2rem;'>Error al cargar los productos. Por favor, recarga la página.</p>";
     });
+
+function aplicarFiltroDesdeURL() {
+    const params = new URLSearchParams(window.location.search);
+    const categoriaURL = params.get("categoria");
+
+    if (categoriaURL) {
+        const productosFiltrados = productos.filter(p => p.categoria.id === categoriaURL);
+
+        if (productosFiltrados.length > 0) {
+            tituloPrincipal.innerText = productosFiltrados[0].categoria.nombre;
+
+            botonesCategorias.forEach(b => b.classList.remove("active"));
+            const botonActivo = document.getElementById(categoriaURL);
+            if (botonActivo) botonActivo.classList.add("active");
+
+            cargarProductos(productosFiltrados);
+            return;
+        }
+    }
+
+    // Sin parámetro, o categoría que no existe: mostrar todo
+    cargarProductos(productos);
+}
 
 const contenedorProductos = document.querySelector("#contenedor-productos");
 const botonesCategorias = document.querySelectorAll(".boton-categoria");
